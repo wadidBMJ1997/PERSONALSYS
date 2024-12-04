@@ -28,3 +28,18 @@ static/
 # Otros
 .DS_Store
 *.swp
+
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+data/
+data_load/
+*.rar
+*.zip
+back/
+datavfox/
+venv/
+migrations/
+forms_generado.py
+generator_modelsform.py
