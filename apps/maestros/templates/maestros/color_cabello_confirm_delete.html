@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+<!-- Block Title  ---------------------------------------------------------------------------------------->
+{% block title %}
+    Eliminar Color De Cabello
+{% endblock title %}
+
+<!-- Block Header  ---------------------------------------------------------------------------------------->
+{% block header %}
+{% endblock header %}
+
+<!-- Block Main - ---------------------------------------------------------------------------------------->
+{% block main %}
+	<div class="wrapper">
+		{% block sidebar %}
+			{% include 'sidebar.html' %}
+		{% endblock %}
+
+		{% block maincomponent %}
+			<!-- Main Component Start -->
+			<div class="main">
+				{% block buttonsidebartoggle %}
+					{% include 'buttonsidebartoggle.html' %}
+				{% endblock %}
+
+				{% block principalcomponent %}
+					<div class="container-fluid">
+						<div class="card border-light mb-3 mt-2">
+							<div class="card-header text-white bg-primary opacity-75 d-flex justify-content-between align-items-center">
+								<h3 class="mb-0">Eliminar Persona</h3>
+								<button type="button" class="btn-close btn-close-white" aria-label="Close"
+									onclick="window.location.href='{% url list_view_name %}'"></button>
+							</div>
+
+							<div class="card-body bg-body-secondary">
+								<div class="mb-3">¿Estás seguro de que deseas eliminar el color de cabello "{{ object }}"?</div>
+								<div>
+									<form method="post" class="d-inline">
+										{% csrf_token %}
+										<button type="submit" class="btn btn-danger">Sí, eliminar</button>
+									</form>
+									<a href="{% url list_view_name %}" class="btn btn-secondary ms-2">Cancelar</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endblock principalcomponent %}
+			</div>
+		{% endblock maincomponent %}
+	</div>
+{% endblock main %}

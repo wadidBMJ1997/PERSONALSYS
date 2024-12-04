@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+<!-- Block Title  ------------------------------------------------------------>
+{% block title %}
+	Cerrar Sessión
+{% endblock title %}
+
+<!-- Block Header ------------------------------------------------------------>
+{% block header %}
+{% endblock header %}
+
+
+<!-- Block Main - ------------------------------------------------------------->
+{% block main %}
+	<div class="wrapper">
+		
+		{% block sidebar %}
+			{% if user.is_authenticated %}
+				{% include 'sidebar.html' %}
+			{% endif %}
+		{% endblock sidebar %}
+		
+		{% block maincomponent %}
+			<div class="main">
+			
+			{% block buttonsidebartoggle %}
+				{% if user.is_authenticated %} 
+					{% include 'buttonsidebartoggle.html' %}
+				{% endif %} 
+			{% endblock buttonsidebartoggle %}
+			
+			{% block principalcomponent %}
+				<div class="row justify-content-center mt-5">
+					<div class="col col-md-4">
+						
+						<div class="card text-center">
+							<div class="card-header">
+								Cierre de Sesión
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Atención!</h5>
+								<p class="card-text">¿Desea cerrar la sesión de usuario?</p>
+								
+								<form method="POST" action="{% url 'cerrar_sesion' %}">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-primary">Cerrar Sesión</button>
+									<a class="btn btn-outline-primary" href="{% url 'home' %}">Cancelar</a>
+								</form>
+							
+							</div>
+							<!-- 
+							<div class="card-footer text-body-secondary">
+								2 days ago
+							</div> -->
+							
+						</div>
+												
+					</div>
+				</div>
+			{% endblock principalcomponent %}
+			
+			</div>
+		{% endblock maincomponent %}
+	
+	</div>
+{% endblock main %}
+
+<!-- Block Fotter ------------------------------------------------------------->
+{% block footer %}
+{% endblock footer %}

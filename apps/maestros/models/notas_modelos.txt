@@ -1,0 +1,21 @@
+En el modelo Persona
+
+* Agregar los siguientes campos
+imagen_1 = models.ImageField(upload_to='imagenes_personas/', null=True, blank=True)
+imagen_2 = models.ImageField(upload_to='imagenes_personas/', null=True, blank=True)
+
+visa_b1b2 = models.IntegerField(choices=YES_NO_CHOICES, default=1)
+fecha_exp_b1b2 = models.DateField("Fecha Expiración B1", null=True, 
+                                  blank=True)
+visa_schengen = models.IntegerField(choices=YES_NO_CHOICES, default=1)
+fecha_exp_schengen = models.DateField("Fecha Expiración B1", null=True, 
+                                    blank=True)
+
+# Parentesco (tabla) familiar, esposa, hijo, amigo
+
+* Eliminar 
+social_security = models.CharField("Social Security", max_length=12, null=True, blank=True)
+id_color_cabello = models.ForeignKey(ColorCabello, on_delete=models.PROTECT, 
+                                     null=True, blank=True) #no
+id_color_ojos = models.ForeignKey(ColorOjo, on_delete=models.PROTECT, 
+                                  null=True, blank=True) #no

@@ -1,0 +1,32 @@
+{% extends 'maestro_form.html' %}
+{% load static %}
+
+{% block maincomponent %}
+	{% block principalcomponent %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="container-fluid">
+				<div class="card border-light mb-3 mt-2">
+					<div class="card-header text-white bg-primary opacity-75 d-flex justify-content-between">
+						<h3 class="mb-0">{{ accion }}</h3>
+						<button type="button" class="btn-close btn-close-white" aria-label="Close"
+							onclick="window.location.href='{% url list_view_name %}'"></button>
+					</div>
+					
+					<div class="card-body bg-body-secondary">
+						<div class="mb-3">¿ {{ mensaje }} <b>{{ object }}</b> ? </div>
+						<div>
+							<form method="post" class="d-inline">
+								{% csrf_token %}
+								<button type="submit" class="btn btn-danger">Sí, eliminar</button>
+								<a href="{% url list_view_name %}" class="btn btn-secondary ms-2">Cancelar</a>
+							</form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>	
+	{% endblock principalcomponent %}
+{% endblock maincomponent %}

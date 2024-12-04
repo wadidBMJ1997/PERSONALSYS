@@ -1,0 +1,135 @@
+<aside id="sidebar">
+	<div class="h-100">
+		<div class="sidebar-logo">
+			<a href="{% url 'home' %}">PersonalSYS</a>
+		</div>
+
+		<!-- Sidebar Navigation Start -->
+		<ul class="sidebar-nav">
+			<li class="sidebar-header">
+				Menú del Sistema
+			</li>
+
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link">
+					<i class="fa-solid fa-gear pe-2"></i>
+					Perfil de Usuario
+				</a>
+			</li>
+
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pages"
+					aria-expanded="false" aria-controls="pages">
+					<i class="fa-regular fa-file-lines pe-2"></i>
+					Maestros
+				</a>
+				<ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item">
+						<a href="{% url 'persona_list' %}" class="sidebar-link">Personal</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="{% url 'pais_list' %}" class="sidebar-link">Paises</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">Tipo de Documentos</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#procesos"
+					aria-expanded="false" aria-controls="procesos">
+					<i class="fa-regular fa-window-restore pe-2"></i>
+					Procesos
+				</a>
+				<ul id="procesos" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">Proyectos</a>
+					</li>
+
+				</ul>
+			</li>
+
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard"
+					aria-expanded="false" aria-controls="dashboard">
+					<i class="fa-solid fa-sliders pe-2"></i>
+					Dashboard
+				</a>
+				<ul id="dashboard" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">Dashboard Analytics</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link">Dashboard Ecommerce</a>
+					</li>
+				</ul>
+			</li>
+
+
+			<!-- Usuarios -->
+			{% if user.is_authenticated and user.is_staff %}
+				<li class="sidebar-item">
+					<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#usuarios"
+						aria-expanded="false" aria-controls="auth">
+						<i class="fa-regular fa-user pe-2"></i>
+						Usuarios
+					</a>
+					<ul id="usuarios" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+						<li class="sidebar-item">
+							<a href="{% url 'grupo_listar' %}" class="sidebar-link">Grupos</a>
+						</li>
+						<li class="sidebar-item">
+							<a href="{% url 'usuario_listar' %}" class="sidebar-link">Usuarios</a>
+						</li>
+					</ul>
+				</li>
+			{% endif %}
+			
+			<!-- Usuario -->
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#usuario"
+					aria-expanded="false" aria-controls="auth">
+					<i class="fa-regular fa-user pe-2"></i>
+					Usuario
+				</a>
+				<ul id="usuario" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item">
+						<a href="{% url 'iniciar_sesion' %}" class="sidebar-link">Iniciar Sesión</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="{% url 'cerrar_sesion' %}" class="sidebar-link">Cerrar Sesión</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="sidebar-header">
+				Multi Level Nav
+			</li>
+			<li class="sidebar-item">
+				<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi"
+					aria-expanded="false" aria-controls="multi">
+					<i class="fa-solid fa-share-nodes pe-2"></i>
+					Multi Level
+				</a>
+				<ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+					<li class="sidebar-item">
+						<a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#multi-two"
+							aria-expanded="false" aria-controls="multi-two">
+							Two Links
+						</a>
+						<ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+							<li class="sidebar-item">
+								<a href="#" class="sidebar-link">Link 1</a>
+							</li>
+							<li class="sidebar-item">
+								<a href="#" class="sidebar-link">Link 2</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- Sidebar Navigation End -->
+	</div>
+</aside>

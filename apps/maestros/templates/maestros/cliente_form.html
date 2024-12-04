@@ -1,0 +1,99 @@
+{% extends 'maestro_form.html' %}
+{% load static %}
+
+{% block maincomponent %}
+	{% block principalcomponent %}
+    <div id="layoutSidenav_content">
+		<main>
+            <div class="container-fluid">
+                <div class="card border-light mb-3 mt-2">
+                    <div class="card-header text-white bg-primary opacity-75 d-flex 
+							justify-content-between">
+						{{ accion }}
+						<button type="button" class="btn-close btn-close-white" 
+							aria-label="Close"
+							onclick="window.location.href='{% url list_view_name %}'">
+						</button>
+					</div>
+                    
+                    <div class="card-body bg-body-secondary">
+                        <form class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                <!-- Estructura generada -->
+                                
+                                <!-- Información Personal Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Información_Personal" aria-expanded="true" class="accordion-button" data-bs-target="#Información_Personal" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Información General
+                                            </strong>
+                                        </button>
+                                    </h2>
+
+                                    <div class="accordion-collapse collapse show" id="Información_Personal">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.estatus_cliente.id_for_label }}">
+                                                        {{ form.estatus_cliente.label_tag }}
+                                                    </label>
+                                                    {{ form.estatus_cliente}}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.estatus_cliente.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_cliente.id_for_label }}">
+                                                        {{ form.codigo_cliente.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_cliente }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_cliente.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.nombre_cliente.id_for_label }}">
+                                                        {{ form.nombre_cliente.label_tag }}
+                                                    </label>
+                                                    {{ form.nombre_cliente }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.nombre_cliente.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_registro_cliente.id_for_label }}">
+                                                        {{ form.fecha_registro_cliente.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_registro_cliente}}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_registro_cliente.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="container mt-3">
+                                <button class="btn btn-primary" type="submit" id="guardarBtn">
+                                    Guardar
+                                </button>
+                                <a class="btn btn-secondary" href="{% url list_view_name %}">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    {% endblock principalcomponent %}
+{% endblock maincomponent %}

@@ -1,0 +1,652 @@
+{% extends 'proceso_form.html' %}
+
+{% load static %}
+
+{% block style %}
+    body {
+        background-color: rgb(0, 204, 255);
+    }
+
+    .tbl-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+        
+    .tbl-fixed {
+        overflow-x: scroll;
+        overflow-y: scroll;
+        height: fit-content;
+        max-height: 60vh;
+        margin-top: 0px;
+        font-size: 80%;
+    }
+    table {
+        width: 100%; /* Forzar la tabla a ocupar el 100% del contenedor */
+        table-layout: fixed; /* Fijar el ancho de las columnas */
+    }
+
+    table th, table td {
+        overflow: hidden; /* Prevenir que el contenido haga que la tabla se expanda */
+        text-overflow: ellipsis; /* Mostrar puntos suspensivos si el contenido es demasiado largo */
+        white-space: nowrap; /* Prevenir que el texto se divida en varias líneas */
+    }
+
+    table th {
+        position: sticky;
+        top: 0px;
+    }
+
+    /* Additional styling for inputs */
+    .table .form-control {
+        width: 100%; /* Ensure input fields take full width of their columns */
+    }
+
+    .small-font {
+        transform: scale(1); /* Escala todo al 80% */
+        transform-origin: top left; /* Mantiene la esquina superior izquierda como punto de origen */
+    }
+
+    .detalle-form {
+        width: 100%;
+        table-layout: fixed; /* Asegura que las columnas se distribuyan uniformemente */
+    }
+    
+    .detalle-form thead,
+    .detalle-form tbody {
+        width: 100%;
+    }
+    
+    .detalle-form th,
+    .detalle-form td {
+        width: 100%;
+        box-sizing: border-box; /* Para incluir padding y borders en el ancho total */
+    }
+
+    
+    
+    
+{% endblock style %}
+
+{% block maincomponent %}
+
+    {% block principalcomponent %}
+    <div id="layoutSidenav_content">
+		<main>
+            <div class="container-fluid tbl-container">
+                <!-- Formulario Encabezado Detalle - Inicio -->
+                <form method="post" id="factura-form">
+
+                    {% csrf_token %}
+
+                    <div class="accordion mt-2" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Proyecto
+                            </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <!--  Encabezado de Factura- Inicio -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label text-primary mb-0" for="{{ form.id_cliente.id_for_label }}">
+                                            {{ form.id_cliente.label_tag }}
+                                        </label>
+                                        {{ form.id_cliente }}
+                                        <div class="invalid-feedback">
+                                            {{ form.id_cliente.errors }}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <label class="form-label text-primary mb-0" for="{{ form.gerente_proyecto.id_for_label }}">
+                                            {{ form.gerente_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.gerente_proyecto }}
+                                        <div class="invalid-feedback">
+                                            {{ form.gerente_proyecto.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label text-primary mb-0" for="{{ form.orden_compra.id_for_label }}">
+                                            {{ form.orden_compra.label_tag }}
+                                        </label>
+                                        {{ form.orden_compra }}
+                                        <div class="invalid-feedback">
+                                            {{ form.orden_compra.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label text-primary mb-0" for="{{ form.tipo_proyecto.id_for_label }}">
+                                            {{ form.tipo_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.tipo_proyecto}}
+                                        <div class="invalid-feedback">
+                                            {{ form.tipo_proyecto.errors }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label text-primary mb-0" for="{{ form.condicion_proyecto.id_for_label }}">
+                                            {{ form.condicion_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.condicion_proyecto}}
+                                        <div class="invalid-feedback">
+                                            {{ form.condicion_proyecto.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.codigo_proyecto.id_for_label }}">
+                                            {{ form.codigo_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.codigo_proyecto}}
+                                        <div class="invalid-feedback">
+                                            {{ form.codigo_proyecto.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <label class="form-label text-primary mb-0" for="{{ form.nombre_proyecto.id_for_label }}">
+                                            {{ form.nombre_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.nombre_proyecto}}
+                                        <div class="invalid-feedback">
+                                            {{ form.nombre_proyecto.errors }}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.fecha_registro_proyecto.id_for_label }}">
+                                            {{ form.fecha_registro_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.fecha_registro_proyecto }}
+                                        <div class="invalid-feedback">
+                                            {{ form.fecha_registro_proyecto.errors }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.fecha_inicio_proyecto.id_for_label }}">
+                                            {{ form.fecha_inicio_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.fecha_inicio_proyecto }}
+                                        <div class="invalid-feedback">
+                                            {{ form.fecha_inicio_proyecto.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.fecha_final_proyecto.id_for_label }}">
+                                            {{ form.fecha_final_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.fecha_final_proyecto }}
+                                        <div class="invalid-feedback">
+                                            {{ form.fecha_final_proyecto.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="form-label text-primary mb-0" for="{{ form.ticket_hotel.id_for_label }}">
+                                            {{ form.ticket_hotel.label_tag }}
+                                        </label>
+                                        {{ form.ticket_hotel }}
+                                        <div class="invalid-feedback">
+                                            {{ form.ticket_hotel.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.ubicacion_inicial.id_for_label }}">
+                                            {{ form.ubicacion_inicial.label_tag }}
+                                        </label>
+                                        {{ form.ubicacion_inicial }}
+                                        <div class="invalid-feedback">
+                                            {{ form.ubicacion_inicial.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label text-primary mb-0" for="{{ form.ubicacion_final.id_for_label }}">
+                                            {{ form.ubicacion_final.label_tag }}
+                                        </label>
+                                        {{ form.ubicacion_final }}
+                                        <div class="invalid-feedback">
+                                            {{ form.ubicacion_final.errors }}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="form-label text-primary mb-0" for="{{ form.observaciones_proyecto.id_for_label }}">
+                                            {{ form.observaciones_proyecto.label_tag }}
+                                        </label>
+                                        {{ form.observaciones_proyecto }}
+                                        <div class="invalid-feedback">
+                                            {{ form.observaciones_proyecto.errors }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--  Encabezado de Factura- Fin -->
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="container my-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Botones a la izquierda -->
+                                <div>
+                                    <button class="btn btn-outline-success btn-sm">
+                                        Guardar
+                                        <i class="bi bi-floppy"></i>
+                                    </button>
+                                    
+
+                                    <a href="{% url 'proyecto_list' %}" class="btn btn-outline-secondary btn-sm me-2">
+                                        Cancelar
+                                        <i class="bi bi-x-circle"></i>
+                                    </a>
+                                </div>
+                                <!-- Botón a la derecha -->
+                                <button type="button" class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#detalleModal">
+                                    Agregar Detalle
+                                    <i class="bi bi-file-earmark-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                    Personal del Proyecto
+                                </button>
+                            </h2>
+                            
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    
+                                    
+                                    <div class="row tbl-fixed my-2 mx-1" id="formset-container">
+                                        {{ formset.management_form }}
+                                        
+                                        <table class="detalle-form table table-striped table-hover table-responsive" style="width: 100%;">
+                                            <thead class="table-primary small-font">
+                                                <tr>
+                                                    <th style="width: 7%;">Código</th>
+                                                    <th style="width: 8%;">Nombres</th>
+                                                    <th style="width: 8%;">Apellidos</th>
+                                                    <th style="width: 8%;">Especialidad</th>
+                                                    <th style="width: 7%;">Pais </th>
+                                                    <th style="width: 7%;">Aeropuerto</th>
+                                                    <th style="width: 7%;">Pasaporte</th>
+                                                    <th style="width: 7%;">Exp. Pass.</th>
+                                                    <th style="width: 7%;">Tipo Visa</th>
+                                                    <th style="width: 7%;">Nro. Visa</th>
+                                                    <th style="width: 7%;">Fecha Inicio</th>
+                                                    <th style="width: 7%;">Fecha Fin</th>
+                                                    <th style="width: 7%;">Confirmado</th>
+                                                    <th style="width: 5%;">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {# Inicialmente no hay filas en el formulario #}
+                                                {% comment %} {% for form in formset %}
+                                                    <tr data-form-index="{{ forloop.counter0 }}">
+                                                        <td>
+                                                            {% if form.instance.pk %}
+                                                                {{ form.id_detalle_proyecto }}
+                                                                {{ form.id_proyecto }}
+                                                                {{ form.id_persona }}
+                                                            {% endif %}
+                                                            
+                                                            {{ form.codigo_persona }}
+                                                        </td>
+                                                        <td>{{ form.nombre_persona }}</td>
+                                                        <td>{{ form.apellido_persona }}</td>
+                                                        <td>{{ form.puesto_trabajo }}</td>
+                                                        <td>{{ form.pais_ciudadania }}</td>
+                                                        <td>{{ form.aeropuerto_cercano }}</td>
+                                                        <td>{{ form.numero_pasaporte }}</td>
+                                                        <td>{{ form.fecha_exp_pasaporte }}</td>
+                                                        <td>{{ form.tipo_visa }}</td>
+                                                        <td>{{ form.numero_visa }}</td>
+                                                        <td>{{ form.fecha_inicio_persona }}</td>
+                                                        <td>{{ form.fecha_fin_persona }}</td>
+                                                        <td>{{ form.confirmado }}</td>
+                                                        <td>{{ form.total_detalle }}</td> 
+                                                    </tr>
+                                                {% endfor %} {% endcomment %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card del Detalle de Factura - Inicio -->
+                    
+                    <!-- Card del Detalle de Factura - Fin -->
+
+                </form>
+                <!-- Formulario Encabezado Detalle - Fin -->
+            </div>
+        </main>
+    </div>
+    {% endblock principalcomponent %}
+
+{% endblock maincomponent %}
+    
+{% block modals %}
+    {% comment %} Ventana Modal Buscar Personal Start {% endcomment %}
+    <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" style="max-width: 70%;">
+            <div class="modal-content">
+                <div class="modal-header text-dark bg-primary bg-opacity-25 py-2">
+                    <h5 class="modal-title fs-6" id="detalleModalLabel">Personal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario modal -->
+                    <form method="post" id="buscarPersonaForm">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="col-md-10">
+                                <input type="text" class="form-control form-control-sm border border-primary" id="busqueda" placeholder="Buscar por Código, Apellido o Especialidad">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-outline-primary btn-sm me-2">
+                                    Buscar
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive tbl-fixed">
+                            <table class="table table-striped small-text" id="tabla-resultados">
+                                <thead class="table-primary fs-7">
+                                    <tr>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Apellido</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Especialidad</th>
+                                        <th scope="col">Seleccionar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Botones del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary btn-sm me-2" id="agregarDetalle">Insertar</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal" id="cancelarDetalle">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} Ventana Modal Buscar Personal End {% endcomment %}
+
+
+    <!-- Modal para Listar Agenda-->
+    <div class="modal fade" id="agendaModal" tabindex="-1" aria-labelledby="agendaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" style="max-width: 70%;">
+            <div class="modal-content">
+                <div class="modal-header text-dark bg-primary bg-opacity-25 py-2">
+                    <h5 class="modal-title fs-6" id="agendaModalLabel">Buscar en Agenda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario modal -->
+                    <form method="post" id="buscarAgendaForm">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-sm border border-primary" id="busquedaGeneral" placeholder="Buscar por nombre, documento, teléfono o email">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-outline-primary btn-sm me-2">
+                                    Buscar
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive tbl-fixed">
+                            <table class="table table-striped small-text" id="tablaResultadosAgenda">
+                                <thead class="table-primary fs-7">
+                                    <tr>
+                                        <th scope="col" style="width: 10%;">Tipo Doc</th>
+                                        <th scope="col" style="width: 12%;">Nro Doc</th>
+                                        <th scope="col" style="width: 33%;">Nombre</th>
+                                        <th scope="col" style="width: 20%;">Dirección</th>
+                                        <th scope="col" style="width: 20%;">Email</th>
+                                        <th scope="col" style="width: 10%;">Teléfono</th>
+                                        <th scope="col" style="width: 5%;">...</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Botones del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary btn-sm me-2" id="seleccionarAgenda">
+                                Seleccionar
+                                <i class="bi bi-check2-circle"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal" id="cancelarAgenda">
+                                Cancelar
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Crear Agenda -->
+    <div class="modal fade" id="crearAgendaModal" tabindex="-1" aria-labelledby="crearAgendaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" style="max-width: 70%;">
+            <div class="modal-content">
+                <div class="modal-header text-dark bg-primary bg-opacity-25 py-2">
+                    <h5 class="modal-title fs-6" id="crearAgendaModalLabel">Crear Nueva Agenda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario para crear un nuevo registro -->
+                    <form id="crearAgendaForm">
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="tipoDoc" class="form-label mb-0">Tipo de Documento</label>
+                                <select id="tipoDoc" name="codigo_tipodoc_identidad" class="form-select form-select-sm border border-primary">
+                                    {% for tipo in tipo_doc_ident %}
+                                        <option value="{{ tipo.codigo_tipodoc_identidad }}">{{ tipo.nombre_tipodoc_identidad }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label for="nroDocIdentidad" class="form-label mb-0">Número de Documento</label>
+                                <input type="text" class="form-control form-control-sm border border-primary" id="nroDocIdentidad" placeholder="Número de Documento">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nombreAgenda" class="form-label mb-0">Nombre</label>
+                                <input type="text" class="form-control form-control-sm border border-primary" id="nombreAgenda" placeholder="Nombre de la Agenda">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="direccion" class="form-label mb-0">Dirección</label>
+                                <input type="text" class="form-control form-control-sm border border-primary" id="direccion" placeholder="Dirección">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="email_1" class="form-label mb-0">email</label>
+                                <input type="text" class="form-control form-control-sm border border-primary" id="email_1" placeholder="email">
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <label for="telefono" class="form-label mb-0">Teléfono</label>
+                                <input type="text" class="form-control form-control-sm border border-primary" id="telefono1" placeholder="Teléfono">
+                            </div>
+                        </div>
+                        <!-- Botones del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-success btn-sm me-2" id="guardarAgenda">
+                                Guardar
+                                <i class="bi bi-floppy"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+                                Cancelar
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock modals %}
+
+{% block script %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buscarPersonaForm = document.getElementById('buscarPersonaForm');
+        const tablaResultados = document.querySelector('#tabla-resultados tbody');
+        const detalleModal = document.getElementById('detalleModal');
+        const formsetContainer = document.getElementById('formset-container');
+        const insertarBtn = document.getElementById('agregarDetalle');
+        
+        // Almacenar las personas seleccionadas temporalmente
+        let personasSeleccionadas = [];
+
+        // Clase reutilizable
+        const formControlClass = 'form-control form-control-sm border border-primary small-font';
+
+        // Evento para seleccionar personas
+        tablaResultados.addEventListener('change', function(event) {
+            if (event.target.matches('.seleccionar-persona')) {
+                const isChecked = event.target.checked;
+                const row = event.target.closest('tr');
+                const codigoPersona = row.querySelector('td:nth-child(1)').textContent.trim();
+                const apellidosPersona = row.querySelector('td:nth-child(2)').textContent.trim();
+                const nombresPersona = row.querySelector('td:nth-child(3)').textContent.trim();
+                const especialidadPersona = row.querySelector('td:nth-child(4)').textContent.trim();
+
+                const persona = {
+                    codigo: codigoPersona,
+                    apellidos: apellidosPersona,
+                    nombres: nombresPersona,
+                    especialidad: especialidadPersona
+                };
+
+                if (isChecked) {
+                    personasSeleccionadas.push(persona);
+                } else {
+                    personasSeleccionadas = personasSeleccionadas.filter(p => p.codigo !== codigoPersona);
+                }
+            }
+        });
+
+        // Manejar el botón de insertar
+        insertarBtn.addEventListener('click', function() {
+            if (personasSeleccionadas.length === 0) {
+                alert('Por favor, selecciona al menos una persona.');
+                return;
+            }
+
+            personasSeleccionadas.forEach(persona => {
+                const currentIndex = formsetContainer.querySelectorAll('.detalle-proyecto-form tbody tr').length;
+
+                const newFormHTML = `
+                <tr data-form-index="${currentIndex}" class="small-font">
+                    <td><input type="text" name="detalleproyecto_set-${currentIndex}-codigo_persona" class="${formControlClass}" value="${persona.codigo}" readonly></td>
+                    <td><input type="text" name="detalleproyecto_set-${currentIndex}-nombre_persona" class="${formControlClass}" value="${persona.nombres}" readonly></td>
+                    <td><input type="text" name="detalleproyecto_set-${currentIndex}-apellido_persona" class="${formControlClass}" value="${persona.apellidos}" readonly></td>
+                    <td><input type="text" name="detalleproyecto_set-${currentIndex}-especialidad" class="${formControlClass}" value="${persona.especialidad}" readonly></td>
+                    <td>
+                        <button type="button" class="btn btn-dark btn-sm btn-edit" data-form-index="${currentIndex}">Edi</button>
+                        <button type="button" class="btn btn-danger btn-sm btn-delete" data-form-index="${currentIndex}">Eli</button>
+                    </td>
+                </tr>`;
+
+                // Agregar la nueva fila al cuerpo de la tabla
+                formsetContainer.querySelector('.detalle-proyecto-form tbody').insertAdjacentHTML('beforeend', newFormHTML);
+
+                // Actualizar el valor de TOTAL_FORMS
+                const totalFormsInput = document.querySelector('[name$="TOTAL_FORMS"]');
+                totalFormsInput.value = formsetContainer.querySelectorAll('.detalle-proyecto-form tbody tr').length;
+            });
+
+            // Limpiar personas seleccionadas y cerrar la ventana modal
+            personasSeleccionadas = [];
+            const modalCloseBtn = detalleModal.querySelector('.btn-close'); // Asegúrate de que hay un botón con la clase btn-close
+            if (modalCloseBtn) {
+                modalCloseBtn.click(); // Cerrar modal
+            } else {
+                $(detalleModal).modal('hide'); // Cerrar modal si estás usando jQuery
+            }
+        });
+
+        // Limpiar filtros y resultados cuando se cierra la ventana modal
+        detalleModal.addEventListener('hidden.bs.modal', function () {
+            buscarPersonaForm.reset(); // Restablecer el formulario
+            tablaResultados.innerHTML = ''; // Limpiar la tabla de resultados
+            personasSeleccionadas = []; // Limpiar la lista de personas seleccionadas
+        });
+
+        // Manejar el submit del formulario de búsqueda de persona
+        buscarPersonaForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const busqueda = document.getElementById('busqueda').value;
+
+            fetch(`/procesos/buscar/persona/?busqueda=${busqueda}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                tablaResultados.innerHTML = ''; // Limpiar tabla de resultados
+
+                data.forEach(persona => {
+                    const fila = `
+                        <tr>
+                            <td>${persona.codigo}</td>
+                            <td>${persona.apellido}</td>
+                            <td>${persona.nombre}</td>
+                            <td>${persona.especialidad}</td>
+                            <td><input type="checkbox" class="seleccionar-persona" data-codigo="${persona.codigo}" data-apellidos="${persona.apellido}" data-nombres="${persona.nombre}" data-especialidad="${persona.especialidad}"></td>
+                        </tr>
+                    `;
+                    tablaResultados.insertAdjacentHTML('beforeend', fila);
+                });
+            })
+            .catch(error => {
+                console.error('Error al buscar personas:', error);
+            });
+        });
+    });
+</script>
+{% endblock script %}

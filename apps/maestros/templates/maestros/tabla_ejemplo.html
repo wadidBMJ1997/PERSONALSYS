@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla con botones ocultos</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Persona</th>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+        <th class="boton-oculto">Eliminar</th>
+        <th class="boton-oculto">Modificar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Pérez</td>
+        <td>Juan</td>
+        <td>555-555-5555</td>
+        <td>juan.perez@correo.com</td>
+        <td>...</td>
+        <td class="boton-oculto">
+          <button>Eliminar</button>
+        </td>
+        <td class="boton-oculto">
+          <button>Modificar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Gómez</td>
+        <td>María</td>
+        <td>666-666-6666</td>
+        <td>maria.gomez@correo.com</td>
+        <td>...</td>
+        <td class="boton-oculto">
+          <button>Eliminar</button>
+        </td>
+        <td class="boton-oculto">
+          <button>Modificar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Rodríguez</td>
+        <td>Pedro</td>
+        <td>777-777-7777</td>
+        <td>pedro.rodriguez@correo.com</td>
+        <td>...</td>
+        <td class="boton-oculto">
+          <button>Eliminar</button>
+        </td>
+        <td class="boton-oculto">
+          <button>Modificar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function mostrarBotones(fila) {
+      if (fila.nodeType === Node.ELEMENT_NODE) {
+        fila.querySelectorAll(".boton-oculto").forEach(function(boton) {
+          boton.style.visibility = "visible";
+        });
+      }
+    }
+    
+    function ocultarBotones(fila) {
+      if (fila.nodeType === Node.ELEMENT_NODE) {
+        fila.querySelectorAll(".boton-oculto").forEach(function(boton) {
+          boton.style.visibility = "hidden";
+        });
+      }
+    }
+
+    window.onload = function() {
+      // Seleccionar todas las filas del cuerpo de la tabla
+      const filas = document.querySelectorAll("tbody tr");
+      
+      // Ocultar los botones inicialmente
+      filas.forEach(ocultarBotones);
+    
+      // Añadir event listeners para mostrar y ocultar los botones al pasar el ratón
+      filas.forEach(function(fila) {
+        fila.addEventListener("mouseenter", function() {
+          mostrarBotones(fila);
+        });
+    
+        fila.addEventListener("mouseleave", function() {
+          ocultarBotones(fila);
+        });
+      });
+
+    };
+    
+  </script>
+  
+</body>
+</html>

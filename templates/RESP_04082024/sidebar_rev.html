@@ -1,0 +1,48 @@
+<!-- Sidebar Navigation Start -->
+<aside id="sidebar">
+    <div class="h-100">
+        <div class="sidebar-logo">
+            <a href="#">PersonalSYS</a>
+        </div>
+
+        <!-- Sidebar Navigation Start -->
+        <ul class="sidebar-nav">
+            {% for menu_item in menu_items %}
+                <li class="sidebar-item">
+                    <a href="{% if menu_item.href %}{{ menu_item.href }}{% else %}#{% endif %}" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#menu-{{ menu_item.id_menu }}" aria-expanded="false"
+                    aria-controls="menu-{{ menu_item.id_menu }}">
+                        {% if menu_item.icono_clase %}<i class="{{ menu_item.icono_clase }} pe-2"></i>{% endif %}
+                        {{ menu_item.nombre_menu }}
+                    </a>
+                    {% if menu_item.submenu and menu_item.submenu|length > 0 %}
+                        <ul id="menu-{{ menu_item.id_menu }}" class="sidebar-dropdown list-unstyled collapse" style="margin-left: 20px;">
+                            {% for sub_menu_item in menu_item.submenu %}
+                                <li class="sidebar-item">
+                                    <a href="{% if sub_menu_item.href %}{{ sub_menu_item.href }}{% else %}#{% endif %}" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                                    data-bs-target="#submenu-{{ sub_menu_item.id_menu }}" aria-expanded="false"
+                                    aria-controls="submenu-{{ sub_menu_item.id_menu }}">
+                                        {{ sub_menu_item.nombre_menu }}
+                                    </a>
+                                    {% if sub_menu_item.submenu and sub_menu_item.submenu|length > 0 %}
+                                        <ul id="submenu-{{ sub_menu_item.id_menu }}" class="sidebar-dropdown list-unstyled collapse" style="margin-left: 20px;">
+                                            {% for sub_sub_menu_item in sub_menu_item.submenu %}
+                                                <li class="sidebar-item">
+                                                    <a href="{{ sub_sub_menu_item.href }}" class="sidebar-link">
+                                                        {{ sub_sub_menu_item.nombre_menu }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <!-- Sidebar Navigation End -->
+    </div>
+</aside>
+<!-- Sidebar Navigation End -->

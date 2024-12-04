@@ -1,0 +1,1647 @@
+{% extends 'maestro_form.html' %}
+{% load static %}
+
+{% block maincomponent %}
+	{% block principalcomponent %}
+    <div id="layoutSidenav_content">
+		<main>
+            <div class="container-fluid">
+                <div class="card border-light mb-3 mt-2">
+                    <div class="card-header text-white bg-primary opacity-75 d-flex 
+							justify-content-between">
+						{{ accion }}
+						<button type="button" class="btn-close btn-close-white" 
+							aria-label="Close"
+							onclick="window.location.href='{% url list_view_name %}'">
+						</button>
+					</div>
+                    
+                    <div class="card-body bg-body-secondary">
+                        <form class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                <!-- Estructura generada -->
+                                
+                                <!-- Información Personal Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Información_Personal" aria-expanded="true" class="accordion-button" data-bs-target="#Información_Personal" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Información Personal
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse show" id="Información_Personal">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.estatus_persona.id_for_label }}">
+                                                        {{ form.estatus_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.estatus_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.estatus_persona.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_persona.id_for_label }}">
+                                                        {{ form.codigo_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_persona.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.nombre_persona.id_for_label }}">
+                                                        {{ form.nombre_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.nombre_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.nombre_persona.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.apellido_persona.id_for_label }}">
+                                                        {{ form.apellido_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.apellido_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.apellido_persona.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ingreso.id_for_label }}">
+                                                        {{ form.fecha_ingreso.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ingreso }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ingreso.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_persona1.id_for_label }}">
+                                                        {{ form.email_persona1.label_tag }}
+                                                    </label>
+                                                    {{ form.email_persona1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_persona1.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_persona2.id_for_label }}">
+                                                        {{ form.email_persona2.label_tag }}
+                                                    </label>
+                                                    {{ form.email_persona2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_persona2.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_nacimiento.id_for_label }}">
+                                                        {{ form.fecha_nacimiento.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_nacimiento }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_nacimiento.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.direccion_persona.id_for_label }}">
+                                                        {{ form.direccion_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.direccion_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.direccion_persona.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_telefono.id_for_label }}">
+                                                        {{ form.id_pais_telefono.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_telefono }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_telefono.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefono_persona.id_for_label }}">
+                                                        {{ form.telefono_persona.label_tag }}
+                                                    </label>
+                                                    {{ form.telefono_persona }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefono_persona.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_telefmov1.id_for_label }}">
+                                                        {{ form.id_pais_telefmov1.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_telefmov1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_telefmov1.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefmov_persona1.id_for_label }}">
+                                                        {{ form.telefmov_persona1.label_tag }}
+                                                    </label>
+                                                    {{ form.telefmov_persona1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefmov_persona1.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_telefmov2.id_for_label }}">
+                                                        {{ form.id_pais_telefmov2.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_telefmov2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_telefmov2.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefmov_persona2.id_for_label }}">
+                                                        {{ form.telefmov_persona2.label_tag }}
+                                                    </label>
+                                                    {{ form.telefmov_persona2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefmov_persona2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.ciudad_residencia.id_for_label }}">
+                                                        {{ form.ciudad_residencia.label_tag }}
+                                                    </label>
+                                                    {{ form.ciudad_residencia }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.ciudad_residencia.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_residencia.id_for_label }}">
+                                                        {{ form.id_pais_residencia.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_residencia }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_residencia.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_postal.id_for_label }}">
+                                                        {{ form.codigo_postal.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_postal }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_postal.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.aeropuerto_cercano.id_for_label }}">
+                                                        {{ form.aeropuerto_cercano.label_tag }}
+                                                    </label>
+                                                    {{ form.aeropuerto_cercano }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.aeropuerto_cercano.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_nacimiento.id_for_label }}">
+                                                        {{ form.id_pais_nacimiento.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_nacimiento }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_nacimiento.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_nacionalidad.id_for_label }}">
+                                                        {{ form.id_pais_nacionalidad.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_nacionalidad }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_nacionalidad.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_otranacional.id_for_label }}">
+                                                        {{ form.id_pais_otranacional.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_otranacional }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_otranacional.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Información Personal Fin -->
+
+                                <!-- Imágenes de la persona Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Imagen_Persona" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Imagen_Persona" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Imágenes de la persona
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Imagen_Persona">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_persona1.id_for_label }}">
+                                                        {{ form.imagen_persona1.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_persona1 }}
+                                                    
+                                                    {% if form.instance.imagen_persona1 %}
+                                                        <img id="previewimagepersona1" src="{{ form.instance.imagen_persona1.url }}" alt="Vista previa imagen persona 1" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_persona1.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_persona2.id_for_label }}">
+                                                        {{ form.imagen_persona2.label_tag }}
+                                                    </label>
+                                                    {{ form.imagen_persona2 }}
+
+                                                    {% if form.instance.imagen_persona2 %}
+                                                        <img id="previewimagepersona2" src="{{ form.instance.imagen_persona2.url }}" alt="Vista previa imagen persona 2" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_persona2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Imágenes de la persona Fin -->
+
+                                <!-- Pasaporte Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Pasaporte_Visa_y_Documentos_de_Viaje" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Pasaporte_Visa_y_Documentos_de_Viaje" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Pasaporte
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Pasaporte_Visa_y_Documentos_de_Viaje">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_tipodoc_identidad.id_for_label }}">
+                                                        {{ form.id_tipodoc_identidad.label_tag }}
+                                                    </label>
+                                                    {{ form.id_tipodoc_identidad }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_tipodoc_identidad.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.nro_doc_identidad.id_for_label }}">
+                                                        {{ form.nro_doc_identidad.label_tag }}
+                                                    </label>
+                                                    {{ form.nro_doc_identidad }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.nro_doc_identidad.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_emision_doc.id_for_label }}">
+                                                        {{ form.id_pais_emision_doc.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_emision_doc }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_emision_doc.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_emision_doc.id_for_label }}">
+                                                        {{ form.fecha_emision_doc.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_emision_doc }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_emision_doc.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_vencimiento_doc.id_for_label }}">
+                                                        {{ form.fecha_vencimiento_doc.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_vencimiento_doc }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_vencimiento_doc.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.observaciones_documento_id.id_for_label }}">
+                                                        {{ form.observaciones_documento_id.label_tag }}
+                                                    </label>
+                                                    {{ form.observaciones_documento_id }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.observaciones_documento_id.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pasaporte Fin -->
+
+                                <!-- Imágenes del pasaporte Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Imagen_Pasaporte" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Imagen_Pasaporte" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Imágenes del pasaporte
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Imagen_Pasaporte">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_pasaporte1.id_for_label }}">
+                                                        {{ form.imagen_pasaporte1.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_pasaporte1 }}
+                                                    
+                                                    {% if form.instance.imagen_pasaporte1 %}
+                                                        <img id="previewimagepasaporte1" src="{{ form.instance.imagen_pasaporte1.url }}" alt="Vista previa imagen pasaporte 1" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_pasaporte1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_pasaporte2.id_for_label }}">
+                                                        {{ form.imagen_pasaporte2.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_pasaporte2 }}
+                                                    
+                                                    {% if form.instance.imagen_pasaporte2 %}
+                                                        <img id="previewimagepasaporte2" src="{{ form.instance.imagen_pasaporte2.url }}" alt="Vista previa imagen pasaporte 2" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_pasaporte2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Imágenes del pasaporte Fin -->
+
+                                <!-- Visa Americana Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Visa_Americana" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Visa_Americana" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Visa Americana
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Visa_Americana">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_emision_visa1.id_for_label }}">
+                                                        {{ form.fecha_emision_visa1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_emision_visa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_emision_visa1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_vencimiento_visa1.id_for_label }}">
+                                                        {{ form.fecha_vencimiento_visa1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_vencimiento_visa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_vencimiento_visa1.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.tipo_visa1.id_for_label }}">
+                                                        {{ form.tipo_visa1.label_tag }}
+                                                    </label>
+                                                    {{ form.tipo_visa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.tipo_visa1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_emision_visa1.id_for_label }}">
+                                                        {{ form.id_pais_emision_visa1.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_emision_visa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_emision_visa1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Visa Americana fin -->
+
+                                <!-- Imágenes de las visas Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Imagen_Visa" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Imagen_Visa" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Imágenes visa americana
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Imagen_Visa">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_visa1.id_for_label }}">
+                                                        {{ form.imagen_visa1.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_visa1 }}
+                                                    
+                                                    {% if form.instance.imagen_visa1 %}
+                                                        <img id="previewimagevisa1" src="{{ form.instance.imagen_visa1.url }}" alt="Vista previa imagen visa 1" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_visa1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_visa2.id_for_label }}">
+                                                        {{ form.imagen_visa2.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_visa2 }}
+                                                    
+                                                    {% if form.instance.imagen_visa2 %}
+                                                        <img id="previewimagevisa2" src="{{ form.instance.imagen_visa2.url }}" alt="Vista previa imagen visa 2" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_visa2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Imágenes de las visas Fin -->
+
+                                <!-- Otras Visas Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Otras_Visas" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Otras_Visas" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Otras Visas
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Otras_Visas">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_emision_visa2.id_for_label }}">
+                                                        {{ form.fecha_emision_visa2.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_emision_visa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_emision_visa2.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_vencimiento_visa2.id_for_label }}">
+                                                        {{ form.fecha_vencimiento_visa2.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_vencimiento_visa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_vencimiento_visa2.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.tipo_visa2.id_for_label }}">
+                                                        {{ form.tipo_visa2.label_tag }}
+                                                    </label>
+                                                    {{ form.tipo_visa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.tipo_visa2 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_emision_visa2.id_for_label }}">
+                                                        {{ form.id_pais_emision_visa2.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_emision_visa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_emision_visa2 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Otras Visas fin -->
+
+                                <!-- Imágenes de las visas Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Imagen_Otras_Visas" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Imagen_Otras_Visas" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Imágenes de otras visas
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Imagen_Otras_Visas">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_visa3.id_for_label }}">
+                                                        {{ form.imagen_visa3.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_visa3 }}
+                                                    
+                                                    {% if form.instance.imagen_visa3 %}
+                                                        <img id="previewimagevisa3" src="{{ form.instance.imagen_visa3.url }}" alt="Vista previa imagen visa 3" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_visa3.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_visa4.id_for_label }}">
+                                                        {{ form.imagen_visa4.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_visa4 }}
+                                                    
+                                                    {% if form.instance.imagen_visa4 %}
+                                                        <img id="previewimagevisa4" src="{{ form.instance.imagen_visa4.url }}" alt="Vista previa imagen visa 4" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_visa2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Imágenes de las visas Fin -->
+
+                                <!-- Especialidades Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Especialidades" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Especialidades" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Especialidades
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Especialidades">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_especialidad1.id_for_label }}">
+                                                        {{ form.id_especialidad1.label_tag }}
+                                                    </label>
+                                                    {{ form.id_especialidad1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_especialidad1.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.anhos_especialidad1.id_for_label }}">
+                                                        {{ form.anhos_especialidad1.label_tag }}
+                                                    </label>
+                                                    {{ form.anhos_especialidad1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.anhos_especialidad1 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ini_especialidad1.id_for_label }}">
+                                                        {{ form.fecha_ini_especialidad1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ini_especialidad1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ini_especialidad1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_especialidad2.id_for_label }}">
+                                                        {{ form.id_especialidad2.label_tag }}
+                                                    </label>
+                                                    {{ form.id_especialidad2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_especialidad2.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.anhos_especialidad2.id_for_label }}">
+                                                        {{ form.anhos_especialidad2.label_tag }}
+                                                    </label>
+                                                    {{ form.anhos_especialidad2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.anhos_especialidad2 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ini_especialidad1.id_for_label }}">
+                                                        {{ form.fecha_ini_especialidad1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ini_especialidad1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ini_especialidad1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Especialidades Fin -->
+
+                                <!-- Certificaciones de Especialización Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Certificaciones_Especializacion" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Certificaciones_Especializacion" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Certificaciones de Especialización
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Certificaciones_Especializacion">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion1.id_for_label }}">
+                                                        {{ form.imagen_certificacion1.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion1 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion1 %}
+                                                        <img id="previewimagecert1" src="{{ form.instance.imagen_certificacion1.url }}" alt="Vista previa imagen cert 1" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion2.id_for_label }}">
+                                                        {{ form.imagen_certificacion2.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion2 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion2 %}
+                                                        <img id="previewimagecert2" src="{{ form.instance.imagen_certificacion2.url }}" alt="Vista previa imagen cert 2" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion3.id_for_label }}">
+                                                        {{ form.imagen_certificacion3.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion3 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion3 %}
+                                                        <img id="previewimagecert3" src="{{ form.instance.imagen_certificacion3.url }}" alt="Vista previa imagen cert 3" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion3.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion4.id_for_label }}">
+                                                        {{ form.imagen_certificacion4.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion4 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion4 %}
+                                                        <img id="previewimagecert4" src="{{ form.instance.imagen_certificacion4.url }}" alt="Vista previa imagen cert 4" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion4.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion5.id_for_label }}">
+                                                        {{ form.imagen_certificacion5.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion5 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion5 %}
+                                                        <img id="previewimagecert5" src="{{ form.instance.imagen_certificacion5.url }}" alt="Vista previa imagen cert 5" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion5.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion6.id_for_label }}">
+                                                        {{ form.imagen_certificacion6.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion6 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion6 %}
+                                                        <img id="previewimagecert6" src="{{ form.instance.imagen_certificacion6.url }}" alt="Vista previa imagen cert 6" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion6.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion7.id_for_label }}">
+                                                        {{ form.imagen_certificacion7.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion7 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion7 %}
+                                                        <img id="previewimagecert7" src="{{ form.instance.imagen_certificacion7.url }}" alt="Vista previa imagen cert 7" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion7.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.imagen_certificacion8.id_for_label }}">
+                                                        {{ form.imagen_certificacion8.label_tag }}
+                                                    </label>
+                                                    
+                                                    {{ form.imagen_certificacion8 }}
+                                                    
+                                                    {% if form.instance.imagen_certificacion8 %}
+                                                        <img id="previewimagecert8" src="{{ form.instance.imagen_certificacion8.url }}" alt="Vista previa imagen cert 8" class="img-preview mt-2" style="display: block; width: 80%; margin: 0 auto;">
+                                                    {% endif %}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.imagen_certificacion8.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion1.id_for_label }}">
+                                                        {{ form.pdf_certificacion1.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion1 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion1.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion1 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion1.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion2.id_for_label }}">
+                                                        {{ form.pdf_certificacion2.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion2 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion2.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion2 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion2.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion3.id_for_label }}">
+                                                        {{ form.pdf_certificacion3.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion3 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion3.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion3 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion3.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion4.id_for_label }}">
+                                                        {{ form.pdf_certificacion4.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion4 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion4.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion4 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion4.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion5.id_for_label }}">
+                                                        {{ form.pdf_certificacion5.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion5 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion5.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion5 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion5.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion6.id_for_label }}">
+                                                        {{ form.pdf_certificacion6.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion6 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion6.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion6 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion6.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion7.id_for_label }}">
+                                                        {{ form.pdf_certificacion7.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion7 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion7.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion7 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion7.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.pdf_certificacion8.id_for_label }}">
+                                                        {{ form.pdf_certificacion8.label_tag }}
+                                                    </label>
+                                                    
+                                                    {% if form.instance.pdf_certificacion8 %}
+                                                    <div>    
+                                                        <a href="{{ form.instance.pdf_certificacion8.url }}" target="_blank">
+                                                            Visualizar archivo PDF
+                                                        </a>
+                                                    </div>
+                                                    {% endif %}
+                                                    
+                                                    {{ form.pdf_certificacion8 }}
+                                                    
+                                                    <div class="invalid-feedback">
+                                                        {{ form.pdf_certificacion8.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Certificaciones de Especialización -->
+
+                                <!-- Referencias Laborales Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Referencias_Laborales" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Referencias_Laborales" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Referencias Laborales
+                                            </strong>
+                                        </button>
+                                    </h2>
+
+                                    <div class="accordion-collapse collapse" id="Referencias_Laborales">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.empresa_trabajo1.id_for_label }}">
+                                                        {{ form.empresa_trabajo1.label_tag }}
+                                                    </label>
+                                                    {{ form.empresa_trabajo1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.empresa_trabajo1.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ini_empresa1.id_for_label }}">
+                                                        {{ form.fecha_ini_empresa1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ini_empresa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ini_empresa1 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_fin_empresa1.id_for_label }}">
+                                                        {{ form.fecha_fin_empresa1.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_fin_empresa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_fin_empresa1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.contacto_empresa1.id_for_label }}">
+                                                        {{ form.contacto_empresa1.label_tag }}
+                                                    </label>
+                                                    {{ form.contacto_empresa1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.contacto_empresa1 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_contacto1.id_for_label }}">
+                                                        {{ form.email_contacto1.label_tag }}
+                                                    </label>
+                                                    {{ form.email_contacto1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_contacto1.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_contacto1.id_for_label }}">
+                                                        {{ form.id_pais_contacto1.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_contacto1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_contacto1 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefono_contacto1.id_for_label }}">
+                                                        {{ form.telefono_contacto1.label_tag }}
+                                                    </label>
+                                                    {{ form.telefono_contacto1 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefono_contacto1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.empresa_trabajo2.id_for_label }}">
+                                                        {{ form.empresa_trabajo2.label_tag }}
+                                                    </label>
+                                                    {{ form.empresa_trabajo2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.empresa_trabajo2.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ini_empresa2.id_for_label }}">
+                                                        {{ form.fecha_ini_empresa2.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ini_empresa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ini_empresa2 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_fin_empresa2.id_for_label }}">
+                                                        {{ form.fecha_fin_empresa2.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_fin_empresa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_fin_empresa2 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.contacto_empresa2.id_for_label }}">
+                                                        {{ form.contacto_empresa2.label_tag }}
+                                                    </label>
+                                                    {{ form.contacto_empresa2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.contacto_empresa2 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_contacto2.id_for_label }}">
+                                                        {{ form.email_contacto2.label_tag }}
+                                                    </label>
+                                                    {{ form.email_contacto2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_contacto2.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_contacto2.id_for_label }}">
+                                                        {{ form.id_pais_contacto2.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_contacto2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_contacto2 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefono_contacto2.id_for_label }}">
+                                                        {{ form.telefono_contacto2.label_tag }}
+                                                    </label>
+                                                    {{ form.telefono_contacto2 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefono_contacto2 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.empresa_trabajo3.id_for_label }}">
+                                                        {{ form.empresa_trabajo3.label_tag }}
+                                                    </label>
+                                                    {{ form.empresa_trabajo3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.empresa_trabajo3.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_ini_empresa3.id_for_label }}">
+                                                        {{ form.fecha_ini_empresa3.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_ini_empresa3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_ini_empresa3 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_fin_empresa3.id_for_label }}">
+                                                        {{ form.fecha_fin_empresa3.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_fin_empresa3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_fin_empresa3 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.contacto_empresa3.id_for_label }}">
+                                                        {{ form.contacto_empresa3.label_tag }}
+                                                    </label>
+                                                    {{ form.contacto_empresa3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.contacto_empresa3 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_contacto3.id_for_label }}">
+                                                        {{ form.email_contacto3.label_tag }}
+                                                    </label>
+                                                    {{ form.email_contacto3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_contacto3.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_contacto3.id_for_label }}">
+                                                        {{ form.id_pais_contacto3.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_contacto3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_contacto3 }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefono_contacto3.id_for_label }}">
+                                                        {{ form.telefono_contacto3.label_tag }}
+                                                    </label>
+                                                    {{ form.telefono_contacto3 }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefono_contacto3 }}
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Referencias Laborales -->
+
+                                <!-- Información Bancaria Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Informacion_Bancaria" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Informacion_Bancaria" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Información Bancaria
+                                            </strong>
+                                        </button>
+                                    </h2>
+
+                                    <div class="accordion-collapse collapse" id="Informacion_Bancaria">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_banco.id_for_label }}">
+                                                        {{ form.id_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.id_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_banco.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.cuenta_bancaria.id_for_label }}">
+                                                        {{ form.cuenta_bancaria.label_tag }}
+                                                    </label>
+                                                    {{ form.cuenta_bancaria }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.cuenta_bancaria.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.titular_cuenta_bancaria.id_for_label }}">
+                                                        {{ form.titular_cuenta_bancaria.label_tag }}
+                                                    </label>
+                                                    {{ form.titular_cuenta_bancaria }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.titular_cuenta_bancaria.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_swift.id_for_label }}">
+                                                        {{ form.codigo_swift.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_swift }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_swift.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_banco.id_for_label }}">
+                                                        {{ form.id_pais_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_banco.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.direccion_banco.id_for_label }}">
+                                                        {{ form.direccion_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.direccion_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.direccion_banco.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_postal_banco.id_for_label }}">
+                                                        {{ form.codigo_postal_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_postal_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_postal_banco.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.ciudad_banco.id_for_label }}">
+                                                        {{ form.ciudad_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.ciudad_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.ciudad_banco.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.codigo_corto_banco.id_for_label }}">
+                                                        {{ form.codigo_corto_banco.label_tag }}
+                                                    </label>
+                                                    {{ form.codigo_corto_banco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.codigo_corto_banco.errors }}
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.observaciones_cuenta.id_for_label }}">
+                                                        {{ form.observaciones_cuenta.label_tag }}
+                                                    </label>
+                                                    {{ form.observaciones_cuenta }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.observaciones_cuenta.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Información Bancaria -->
+
+                                <!-- Apariencia Personal y Tallas -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Apariencia_Personal_y_Tallas" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Apariencia_Personal_y_Tallas" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Apariencia personal y tallas
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Apariencia_Personal_y_Tallas">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.estatura.id_for_label }}">
+                                                        {{ form.estatura.label_tag }}
+                                                    </label>
+                                                    {{ form.estatura }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.estatura.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.peso.id_for_label }}">
+                                                        {{ form.peso.label_tag }}
+                                                    </label>
+                                                    {{ form.peso }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.peso.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.talla_tshirt.id_for_label }}">
+                                                        {{ form.talla_tshirt.label_tag }}
+                                                    </label>
+                                                    {{ form.talla_tshirt }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.talla_tshirt.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.talla_coverall.id_for_label }}">
+                                                        {{ form.talla_coverall.label_tag }}
+                                                    </label>
+                                                    {{ form.talla_coverall }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.talla_coverall.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.talla_pantalon.id_for_label }}">
+                                                        {{ form.talla_pantalon.label_tag }}
+                                                    </label>
+                                                    {{ form.talla_pantalon }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.talla_pantalon.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Información en caso de emergencia Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Información_en_caso_de_Emergencia" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Información_en_caso_de_Emergencia" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Información en caso de emergencia
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Información_en_caso_de_Emergencia">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.nombre_apellidos_contacto.id_for_label }}">
+                                                        {{ form.nombre_apellidos_contacto.label_tag }}
+                                                    </label>
+                                                    {{ form.nombre_apellidos_contacto }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.nombre_apellidos_contacto.errors }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_parentesco.id_for_label }}">
+                                                        {{ form.id_parentesco.label_tag }}
+                                                    </label>
+                                                    {{ form.id_parentesco }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_parentesco }}
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.id_pais_telefcont.id_for_label }}">
+                                                        {{ form.id_pais_telefcont.label_tag }}
+                                                    </label>
+                                                    {{ form.id_pais_telefcont }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.id_pais_telefcont.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.telefono_contacto.id_for_label }}">
+                                                        {{ form.telefono_contacto.label_tag }}
+                                                    </label>
+                                                    {{ form.telefono_contacto }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.telefono_contacto.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.email_contacto.id_for_label }}">
+                                                        {{ form.email_contacto.label_tag }}
+                                                    </label>
+                                                    {{ form.email_contacto }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.email_contacto.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Información en caso de emergencia Fin -->
+
+                                <!-- Black List Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Black_List" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Black_List" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Black List
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Black_List">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.estatus_black.id_for_label }}">
+                                                        {{ form.estatus_black.label_tag }}
+                                                    </label>
+                                                    {{ form.estatus_black }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.estatus_black.errors }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_black.id_for_label }}">
+                                                        {{ form.fecha_black.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_black }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_black.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="form-label text-primary mb-0" for="motivo_black_id">
+                                                        {{ form.motivo_black.label_tag }}
+                                                    </label>
+                                                    {{ form.motivo_black }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.motivo_black.errors }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Black List Fin -->
+
+                                <!-- Otros datos Inicio -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button aria-controls="Otros_Datos" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Otros_Datos" data-bs-toggle="collapse" type="button">
+                                            <strong>
+                                                Otros datos
+                                            </strong>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse" id="Otros_Datos">
+                                        <div class="accordion-body bg-secondary-subtle">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.fecha_cese.id_for_label }}">
+                                                        {{ form.fecha_cese.label_tag }}
+                                                    </label>
+                                                    {{ form.fecha_cese }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.fecha_cese.errors }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10">
+                                                    <label class="form-label text-primary mb-0" for="{{ form.observacion_cese.id_for_label }}">
+                                                        {{ form.observacion_cese.label_tag }}
+                                                    </label>
+                                                    {{ form.observacion_cese }}
+                                                    <div class="invalid-feedback">
+                                                        {{ form.observacion_cese }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Otros datos Fin -->
+                            </div>
+
+                            <div class="container mt-3">
+                                <button class="btn btn-primary" type="submit" id="guardarBtn">
+                                    Guardar
+                                </button>
+                                <a class="btn btn-secondary" href="{% url list_view_name %}">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    {% endblock principalcomponent %}
+{% endblock maincomponent %}

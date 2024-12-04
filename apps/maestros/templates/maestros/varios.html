@@ -1,0 +1,98 @@
+<div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          <strong>Pasaporte Visa y Documentos de Viaje</strong>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+      <div class="accordion-body bg-secondary-subtle">
+        <div class="row ">
+            <div class="col-md-4">
+                <label for="{{ form.id_tipodoc_identidad.id_for_label }}" class="form-label text-primary">Tipo de Documento</label>
+                {{ form.id_tipodoc_identidad }}
+                <div class="invalid-feedback">
+                    {{ form.id_tipodoc_identidad.errors }}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="{{ form.nro_doc_identidad.id_for_label }}" class="form-label text-primary">Número de Documento</label>
+                {{ form.nro_doc_identidad }}
+                <div class="invalid-feedback">
+                    {{ form.nro_doc_identidad.errors }}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="{{ form.id_pais_emision_doc.id_for_label }}" class="form-label text-primary">Pais emisor del Documento</label>
+                {{ form.id_pais_emision_doc }}
+                <div class="invalid-feedback">
+                    {{ form.id_pais_emision_doc.errors }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-md-4">
+                <label for="{{ form.fecha_emision_doc.id_for_label }}" class="form-label text-primary">Fecha emisión del Documento</label>
+                {{ form.fecha_emision_doc }}
+                <div class="invalid-feedback">
+                    {{ form.fecha_emision_doc.errors }}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="{{ form.fecha_vencimiento_doc.id_for_label }}" class="form-label text-primary">Fecha Vencimiento del Documento</label>
+                {{ form.fecha_vencimiento_doc }}
+                <div class="invalid-feedback">
+                    {{ form.fecha_vencimiento_doc_doc.errors }}
+                </div>
+            </div>
+        </div>
+        
+        
+        visa_hl1_l1
+        fecha_exp_hl1_l1
+        
+        arc_greencard
+        fecha_exp_arc_greencard
+        <div class="row ">
+            <div class="col-md-3">
+                <label for="{{ form.visa_c1d.id_for_label }}" class="form-label text-primary">Visa C1D</label>
+                {{ form.visa_c1d }}
+                <div class="invalid-feedback">
+                    {{ form.visa_c1d.errors }}
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="{{ form.fecha_exp_c1d.id_for_label }}" class="form-label text-primary">Vencimiento C1D</label>
+                {{ form.fecha_exp_c1d }}
+                <div class="invalid-feedback">
+                    {{ form.fecha_exp_c1d }}
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="{{ form.visa_b1.id_for_label }}" class="form-label text-primary">Visa B1</label>
+                {{ form.visa_b1 }}
+                <div class="invalid-feedback">
+                    {{ form.visa_b1.errors }}
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="{{ form.fecha_exp_b1.id_for_label }}" class="form-label text-primary">Vencimiento B1</label>
+                {{ form.fecha_exp_b1 }}
+                <div class="invalid-feedback">
+                    {{ form.fecha_exp_b1 }}
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+<!-- Block Title  ---------------------------------------------------------------------------------------->
+{% block title %}
+	Inicio
+{% endblock title %}
+
+{% block header %}
+	{% comment %} {% include 'navbar.html' %} {% endcomment %}
+{% endblock header %}
+
+<!-- Block Main - ---------------------------------------------------------------------------------------->
+{% block main %}
+	<div class="wrapper">
+
+		{% block sidebar %}
+			{% include "sidebar.html" %}
+		{% endblock sidebar %}
+
+		{% block maincomponent %}
+		<!-- Main Component Start -->
+		<div class="main">
+			{% block buttonsidebartoggle %}
+				{% include 'buttonsidebartoggle.html' %}
+			{% endblock %}
+
+			{% block principalcomponent %}
+				<main class="content px-3 py-2">
+					<div class="container-fluid">
+						<div class="mb-3">
+							<h3>Sistema de Gestión de Personal Técnico Profesional</h3>
+
+							<div class="container">
+								<div class="card mt-3">
+									<div class="card-header text-white bg-primary opacity-75">
+										Bienvenido!
+									</div>
+
+									<div class="card-body">
+										<h4 class="card-title">Inicio</h4>
+										<p class="card-text">Estás en la página principal de la aplicación</p>
+										<p class="card-text">Que consta de Maestros, Procesos y el Dashboard</p>
+										<p class="card-text">Más otras utilidades como el control de usuarios</p>
+									</div>
+									<div class="card-footer text-white bg-primary opacity-75">
+										{{ fecha }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</main>
+			{% endblock %}
+
+		</div>
+		<!-- Main Component End -->
+		{% endblock %}
+
+	</div>
+{% endblock main %}
+
+<!-- Block Fotter ---------------------------------------------------------------------------------------->
+{% block footer %}
+{% endblock footer %}

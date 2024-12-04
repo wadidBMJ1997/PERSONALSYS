@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+<!-- Block Title  ---------------------------------------------------------------------------------------->
+{% block title %}
+    {% if form.instance.id_persona %}
+        Editar Persona
+    {% else %}
+        Crear Persona
+    {% endif %}
+{% endblock title %}
+<!-- Block Header  ---------------------------------------------------------------------------------------->
+{% block header %}
+
+{% endblock header %}
+<!-- Block Main - ---------------------------------------------------------------------------------------->
+{% block main %}
+<div class="wrapper">
+    {% block sidebar %}
+        {% include 'sidebar.html' %}
+    {% endblock %}
+
+    {% block maincomponent %}
+    <!-- Main Component Start -->
+    <div class="main">
+        {% block buttonsidebartoggle %}
+            {% include 'buttonsidebartoggle.html' %}
+        {% endblock %}
+
+        {% block principalcomponent %}
+        <div class="container-fluid">
+            <div class="card border-light mb-3 mt-2">
+                <div class="card-header text-white bg-primary opacity-75">
+                    {% if form.instance.id_persona %}
+                    <h3>
+                        Editar Persona
+                    </h3>
+                    {% else %}
+                    <h3>
+                        Crear Persona
+                    </h3>
+                    {% endif %}
+                </div>
+                <div class="card-body bg-body-secondary">
+                    <form class="needs-validation" method="post" novalidate="">
+                        {% csrf_token %}
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <!-- Estructura generada -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Información_Personal" aria-expanded="true" class="accordion-button" data-bs-target="#Información_Personal" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Información Personal
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse show" id="Información_Personal">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.nombre_persona.id_for_label }}">
+                                                    {{ form.nombre_persona.label_tag }}
+                                                </label>
+                                                {{ form.nombre_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.nombre_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.apellido_persona.id_for_label }}">
+                                                    {{ form.apellido_persona.label_tag }}
+                                                </label>
+                                                {{ form.apellido_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.apellido_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.fecha_ingreso.id_for_label }}">
+                                                    {{ form.fecha_ingreso.label_tag }}
+                                                </label>
+                                                {{ form.fecha_ingreso }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.fecha_ingreso.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.email_persona1.id_for_label }}">
+                                                    {{ form.email_persona1.label_tag }}
+                                                </label>
+                                                {{ form.email_persona1 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_persona1.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.email_persona2.id_for_label }}">
+                                                    {{ form.email_persona2.label_tag }}
+                                                </label>
+                                                {{ form.email_persona2 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_persona2.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.fecha_nacimiento.id_for_label }}">
+                                                    {{ form.fecha_nacimiento.label_tag }}
+                                                </label>
+                                                {{ form.fecha_nacimiento }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.fecha_nacimiento.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Apariencia_Personal_y_Tallas" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Apariencia_Personal_y_Tallas" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Apariencia Personal y Tallas
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="Apariencia_Personal_y_Tallas">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.id_color_cabello.id_for_label }}">
+                                                    {{ form.id_color_cabello.label_tag }}
+                                                </label>
+                                                {{ form.id_color_cabello }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_color_cabello.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.id_color_ojos.id_for_label }}">
+                                                    {{ form.id_color_ojos.label_tag }}
+                                                </label>
+                                                {{ form.id_color_ojos }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_color_ojos.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.estatura.id_for_label }}">
+                                                    {{ form.estatura.label_tag }}
+                                                </label>
+                                                {{ form.estatura }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.estatura.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.peso.id_for_label }}">
+                                                    {{ form.peso.label_tag }}
+                                                </label>
+                                                {{ form.peso }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.peso.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_tshirt.id_for_label }}">
+                                                    {{ form.talla_tshirt.label_tag }}
+                                                </label>
+                                                {{ form.talla_tshirt }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_tshirt.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_coverall.id_for_label }}">
+                                                    {{ form.talla_coverall.label_tag }}
+                                                </label>
+                                                {{ form.talla_coverall }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_coverall.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_pantalon.id_for_label }}">
+                                                    {{ form.talla_pantalon.label_tag }}
+                                                </label>
+                                                {{ form.talla_pantalon }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_pantalon.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mt-3">
+                            <button class="btn btn-primary" type="submit">
+                                Guardar
+                            </button>
+                            <a class="btn btn-secondary" href="{% url 'persona_list' %}">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    {% endblock %}
+</div>
+{% endblock main %}

@@ -1,0 +1,517 @@
+{% extends 'base.html' %}
+<!-- Block Title  ---------------------------------------------------------------------------------------->
+{% block title %}
+    {% if form.instance.id_persona %}
+        Editar Persona
+    {% else %}
+        Crear Persona
+    {% endif %}
+{% endblock title %}
+<!-- Block Header  ---------------------------------------------------------------------------------------->
+{% block header %}
+
+{% endblock header %}
+<!-- Block Main - ---------------------------------------------------------------------------------------->
+{% block main %}
+<div class="wrapper">
+    {% block sidebar %}
+        {% include 'sidebar.html' %}
+    {% endblock %}
+
+    {% block maincomponent %}
+    <!-- Main Component Start -->
+    <div class="main">
+        {% block buttonsidebartoggle %}
+            {% include 'buttonsidebartoggle.html' %}
+        {% endblock %}
+
+        {% block principalcomponent %}
+        <div class="container-fluid">
+            <div class="card border-light mb-3 mt-2">
+                <div class="card-header text-white bg-primary opacity-75">
+                    {% if form.instance.id_persona %}
+                    <h3>
+                        Editar Persona
+                    </h3>
+                    {% else %}
+                    <h3>
+                        Crear Persona
+                    </h3>
+                    {% endif %}
+                </div>
+                <div class="card-body bg-body-secondary">
+                    <form class="needs-validation" method="post" novalidate="">
+                        {% csrf_token %}
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <!-- Estructura generada -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Información_Personal" aria-expanded="true" class="accordion-button" data-bs-target="#Información_Personal" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Información Personal
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse show" id="Información_Personal">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.estatus_persona.id_for_label }}">
+                                                    {{ form.estatus_persona.label_tag }}
+                                                </label>
+                                                {{ form.estatus_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.estatus_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.nombre_persona.id_for_label }}">
+                                                    {{ form.nombre_persona.label_tag }}
+                                                </label>
+                                                {{ form.nombre_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.nombre_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.apellido_persona.id_for_label }}">
+                                                    {{ form.apellido_persona.label_tag }}
+                                                </label>
+                                                {{ form.apellido_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.apellido_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.fecha_ingreso.id_for_label }}">
+                                                    {{ form.fecha_ingreso.label_tag }}
+                                                </label>
+                                                {{ form.fecha_ingreso }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.fecha_ingreso.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.email_persona1.id_for_label }}">
+                                                    {{ form.email_persona1.label_tag }}
+                                                </label>
+                                                {{ form.email_persona1 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_persona1.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label text-primary" for="{{ form.email_persona2.id_for_label }}">
+                                                    {{ form.email_persona2.label_tag }}
+                                                </label>
+                                                {{ form.email_persona2 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_persona2.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.fecha_nacimiento.id_for_label }}">
+                                                    {{ form.fecha_nacimiento.label_tag }}
+                                                </label>
+                                                {{ form.fecha_nacimiento }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.fecha_nacimiento.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="form-label text-primary" for="{{ form.direccion_persona.id_for_label }}">
+                                                    {{ form.direccion_persona.label_tag }}
+                                                </label>
+                                                {{ form.direccion_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.direccion_persona.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_telefono.id_for_label }}">
+                                                    {{ form.id_pais_telefono.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_telefono }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_telefono.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.telefono_persona.id_for_label }}">
+                                                    {{ form.telefono_persona.label_tag }}
+                                                </label>
+                                                {{ form.telefono_persona }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.telefono_persona.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_telefmov1.id_for_label }}">
+                                                    {{ form.id_pais_telefmov1.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_telefmov1 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_telefmov1.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.telefmov_persona1.id_for_label }}">
+                                                    {{ form.telefmov_persona1.label_tag }}
+                                                </label>
+                                                {{ form.telefmov_persona1 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.telefmov_persona1.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_telefmov2.id_for_label }}">
+                                                    {{ form.id_pais_telefmov2.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_telefmov2 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_telefmov2.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label text-primary" for="{{ form.telefmov_persona2.id_for_label }}">
+                                                    {{ form.telefmov_persona2.label_tag }}
+                                                </label>
+                                                {{ form.telefmov_persona2 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.telefmov_persona2.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.ciudad_residencia.id_for_label }}">
+                                                    {{ form.ciudad_residencia.label_tag }}
+                                                </label>
+                                                {{ form.ciudad_residencia }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.ciudad_residencia.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_residencia.id_for_label }}">
+                                                    {{ form.id_pais_residencia.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_residencia }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_residencia.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.codigo_postal.id_for_label }}">
+                                                    {{ form.codigo_postal.label_tag }}
+                                                </label>
+                                                {{ form.codigo_postal }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.codigo_postal.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.aeropuerto_cercano.id_for_label }}">
+                                                    {{ form.aeropuerto_cercano.label_tag }}
+                                                </label>
+                                                {{ form.aeropuerto_cercano }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.aeropuerto_cercano.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_nacimiento.id_for_label }}">
+                                                    {{ form.id_pais_nacimiento.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_nacimiento }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_nacimiento.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_nacionalidad.id_for_label }}">
+                                                    {{ form.id_pais_nacionalidad.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_nacionalidad }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_nacionalidad.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.imagen_persona1.id_for_label }}">
+                                                    {{ form.imagen_persona1.label_tag }}
+                                                </label>
+                                                {{ form.imagen_persona1 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.imagen_persona1.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.imagen_persona2.id_for_label }}">
+                                                    {{ form.imagen_persona2.label_tag }}
+                                                </label>
+                                                {{ form.imagen_persona2 }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.imagen_persona2.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Black_List" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Black_List" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Black List
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="Black_List">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.estatus_black.id_for_label }}">
+                                                    {{ form.estatus_black.label_tag }}
+                                                </label>
+                                                {{ form.estatus_black }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.estatus_black.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.fecha_black.id_for_label }}">
+                                                    {{ form.fecha_black.label_tag }}
+                                                </label>
+                                                {{ form.fecha_black }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.fecha_black.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label text-primary" for="{{ form.motivo_black.id_for_label }}">
+                                                    {{ form.motivo_black.label_tag }}
+                                                </label>
+                                                {{ form.motivo_black }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.motivo_black.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Apariencia_Personal_y_Tallas" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Apariencia_Personal_y_Tallas" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Apariencia Personal y Tallas
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="Apariencia_Personal_y_Tallas">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.id_color_cabello.id_for_label }}">
+                                                    {{ form.id_color_cabello.label_tag }}
+                                                </label>
+                                                {{ form.id_color_cabello }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_color_cabello.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.id_color_ojos.id_for_label }}">
+                                                    {{ form.id_color_ojos.label_tag }}
+                                                </label>
+                                                {{ form.id_color_ojos }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_color_ojos.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.estatura.id_for_label }}">
+                                                    {{ form.estatura.label_tag }}
+                                                </label>
+                                                {{ form.estatura }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.estatura.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label text-primary" for="{{ form.peso.id_for_label }}">
+                                                    {{ form.peso.label_tag }}
+                                                </label>
+                                                {{ form.peso }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.peso.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_tshirt.id_for_label }}">
+                                                    {{ form.talla_tshirt.label_tag }}
+                                                </label>
+                                                {{ form.talla_tshirt }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_tshirt.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_coverall.id_for_label }}">
+                                                    {{ form.talla_coverall.label_tag }}
+                                                </label>
+                                                {{ form.talla_coverall }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_coverall.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.talla_pantalon.id_for_label }}">
+                                                    {{ form.talla_pantalon.label_tag }}
+                                                </label>
+                                                {{ form.talla_pantalon }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.talla_pantalon.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Información_en_caso_de_Emergencia" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Información_en_caso_de_Emergencia" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Información en caso de Emergencia
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="Información_en_caso_de_Emergencia">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="form-label text-primary" for="{{ form.nombre_apellidos_contacto.id_for_label }}">
+                                                    {{ form.nombre_apellidos_contacto.label_tag }}
+                                                </label>
+                                                {{ form.nombre_apellidos_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.nombre_apellidos_contacto.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_telefcont.id_for_label }}">
+                                                    {{ form.id_pais_telefcont.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_telefcont }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_telefcont.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.telefono_contacto.id_for_label }}">
+                                                    {{ form.telefono_contacto.label_tag }}
+                                                </label>
+                                                {{ form.telefono_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.telefono_contacto.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.email_contacto.id_for_label }}">
+                                                    {{ form.email_contacto.label_tag }}
+                                                </label>
+                                                {{ form.email_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_contacto.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="Pasaporte_Visa_y_Documentos_de_Viaje" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#Pasaporte_Visa_y_Documentos_de_Viaje" data-bs-toggle="collapse" type="button">
+                                        <strong>
+                                            Pasaporte Visa y Documentos de Viaje
+                                        </strong>
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="Pasaporte_Visa_y_Documentos_de_Viaje">
+                                    <div class="accordion-body bg-secondary-subtle">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="form-label text-primary" for="{{ form.nombre_apellidos_contacto.id_for_label }}">
+                                                    {{ form.nombre_apellidos_contacto.label_tag }}
+                                                </label>
+                                                {{ form.nombre_apellidos_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.nombre_apellidos_contacto.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.id_pais_telefcont.id_for_label }}">
+                                                    {{ form.id_pais_telefcont.label_tag }}
+                                                </label>
+                                                {{ form.id_pais_telefcont }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.id_pais_telefcont.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.telefono_contacto.id_for_label }}">
+                                                    {{ form.telefono_contacto.label_tag }}
+                                                </label>
+                                                {{ form.telefono_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.telefono_contacto.errors }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label text-primary" for="{{ form.email_contacto.id_for_label }}">
+                                                    {{ form.email_contacto.label_tag }}
+                                                </label>
+                                                {{ form.email_contacto }}
+                                                <div class="invalid-feedback">
+                                                    {{ form.email_contacto.errors }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mt-3">
+                            <button class="btn btn-primary" type="submit">
+                                Guardar
+                            </button>
+                            <a class="btn btn-secondary" href="{% url 'persona_list' %}">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    {% endblock %}
+</div>
+{% endblock main %}
